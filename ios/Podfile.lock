@@ -1,0 +1,28 @@
+PODS:
+  - React (0.36.0):
+    - React/Core (= 0.36.0)
+  - React/Core (0.36.0)
+  - RNBackgroundFetch (1.0.0)
+  - RNBackgroundGeolocation (1.5.2)
+
+DEPENDENCIES:
+  - React (from `../node_modules/react-native`)
+  - RNBackgroundFetch (from `../node_modules/react-native-background-fetch`)
+  - RNBackgroundGeolocation (from `../node_modules/react-native-background-geolocation`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  RNBackgroundFetch:
+    :path: "../node_modules/react-native-background-fetch"
+  RNBackgroundGeolocation:
+    :path: "../node_modules/react-native-background-geolocation"
+
+SPEC CHECKSUMS:
+  React: 01dc10a6bec41af17a89c66298357f6621e58d5f
+  RNBackgroundFetch: 1d6d175b37da2105fd35d155768047bd5119645b
+  RNBackgroundGeolocation: 3706d76fb5e497d81d03862b28599eca26e9680d
+
+PODFILE CHECKSUM: 6efd008af92861e8d84f367cd0178a58373a8d11
+
+COCOAPODS: 1.1.1
