@@ -6,6 +6,7 @@ import '../I18n/I18n' // keep before root container
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import applyConfigSettings from '../Config'
+import BackgroundGeolocation from 'react-native-background-geolocation'
 
 // Apply config overrides
 applyConfigSettings()
@@ -23,8 +24,36 @@ const store = createStore()
  */
 class App extends Component {
   componentWillMount() {
-    console.log("thing happened")
+    BackgroundGeolocation.configure({
+      // Geolocation Config
+      desiredAccuracy: 0,
+      stationaryRadius: 25,
+      distanceFilter: 10,
+      // Activity Recognition
+      stopTimeout: 1,
+      // Application config
+      debug: false, // <-- enable for debug sounds & notifications
+      logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
+      stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
+      startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
+      // HTTP / SQLite config
+			batchSync: true,
+      url: 'http://localhost:3001/locations',
+      //autoSync: true,         // <-- POST each location immediately to server
+      params: {               // <-- Optional HTTP params
+        "token": "35385967362628273646"
+      }
+    }, function(state) {
+      console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);
+
+      if (!state.enabled) {
+        BackgroundGeolocation.start(function() {
+          console.log("- Start success");
+        });
+      }
+    })
   }
+
   render () {
     return (
       <Provider store={store}>
