@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, ListView, ScrollView, Text, KeyboardAvoidingView, RefreshControl } from 'react-native'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -35,9 +35,20 @@ class LocationHistoryScreen extends React.Component {
     BackgroundGeolocation.un('motionchange', this.onMotionChange);
   }
 
+  constructor (props) {
+    super(props)
+    const cities = []
+    const rowHasChanged = (r1, r2) => r1.id !== r2.id
+    const ds = new ListView.DataSource({rowHasChanged})
+    console.log("point1")
+    this.state = {
+      dataSource: ds.cloneWithRows(cities)
+    }
+  }
+
   componentWillMount() {
     console.log("this has been triggered")
-    this.props.attemptGetRecentlyVisited()
+    this.onRefresh()
 		BackgroundGeolocation.on('location', this.onLocation);
 
     // This handler fires when movement states changes (stationary->moving; moving->stationary)
@@ -74,14 +85,48 @@ class LocationHistoryScreen extends React.Component {
     });
   }
 
+  onRefresh() {
+    this.props.attemptGetRecentlyVisited()
+  }
+
+  _renderRow (rowData) {
+    return (
+      <View style={styles.row}>
+        <Text style={styles.boldLabel}>{rowData.country}</Text>
+      </View>
+    )
+  }
+
+  componentWillReceiveProps (newProps) {
+    if (newProps.cities) {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(newProps.cities)
+      })
+    }
+  }
+
+  _noRowData () {
+    return this.state.dataSource.getRowCount() === 0
+  }
+
   render () {
     console.log("render has been triggered")
+    const {fetching} = this.props
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>This is where the location history will go</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <ListView
+        style={styles.container}
+        dataSource={this.state.dataSource}
+        renderRow={this._renderRow}
+        pageSize={15}
+        enableEmptySections={true}
+        refreshControl={
+          <RefreshControl
+            refreshing={fetching}
+            onRefresh={this.onRefresh.bind(this)}
+          />
+        }
+      >
+      </ListView>
     )
   }
 
@@ -89,6 +134,8 @@ class LocationHistoryScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    fetching: state.locationHistory.fetching,
+    cities: state.locationHistory.visitedCities
   }
 }
 
