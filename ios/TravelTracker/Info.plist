@@ -69,9 +69,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app requires background location</string>
-	<key>NSMotionUsageDescription	</key>
-	<string>This app requires motion acces</string>
+	<string>Background location access to determine which countries you&apos;ve visited</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Motion access to determine how you&apos;re moving on your travels</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

@@ -53,6 +53,11 @@ class DrawerContent extends Component {
     NavigationActions.locationHistory()
   }
 
+  handlePressLocationMap = () => {
+    this.toggleDrawer()
+    NavigationActions.locationHistoryMap({screen_param: 'test value'})
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -63,6 +68,7 @@ class DrawerContent extends Component {
         <DrawerButton text='Themes' onPress={this.handlePressTheme} />
         <DrawerButton text='Device Info' onPress={this.handlePressDevice} />
         <DrawerButton text='Location History' onPress={this.handlePressLocationHistory} />
+        <DrawerButton text='Location Map' onPress={this.handlePressLocationMap} />
       </ScrollView>
     )
   }

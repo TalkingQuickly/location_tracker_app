@@ -6,6 +6,7 @@ import '../I18n/I18n' // keep before root container
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import applyConfigSettings from '../Config'
+import config from '../Config/AppConfig'
 import BackgroundGeolocation from 'react-native-background-geolocation'
 
 // Apply config overrides
@@ -24,6 +25,7 @@ const store = createStore()
  */
 class App extends Component {
   componentWillMount() {
+    const {apiToken, baseUrl} = config
     BackgroundGeolocation.configure({
       // Geolocation Config
       desiredAccuracy: 0,
@@ -38,10 +40,10 @@ class App extends Component {
       startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
       // HTTP / SQLite config
 			batchSync: true,
-      url: 'http://localhost:3001/locations',
+      url: `${baseUrl}locations`,
       //autoSync: true,         // <-- POST each location immediately to server
       params: {               // <-- Optional HTTP params
-        "token": "35385967362628273646"
+        "token": apiToken
       }
     }, function(state) {
       console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);

@@ -2,15 +2,15 @@ import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
 const { Types, Creators } = createActions({
-  visitedCitiesRequest: null,
-  visitedCitiesSuccess: ['cities']
+  recentLocationsRequest: null,
+  recentLocationsSuccess: ['recentLocations']
 })
 
-export const LocationHistoryTypes = Types
+export const LocationHistoryMapTypes = Types
 export default Creators
 
 export const INITIAL_STATE = Immutable({
-  visitedCities: [],
+  recentLocations: [],
   fetching: false
 })
 
@@ -20,14 +20,14 @@ export const request = (state: Object) => {
   })
 }
 
-export const success = (state: Object, {cities}) => {
+export const success = (state: Object, {recentLocations}) => {
   return state.merge({
     fetching: false,
-    visitedCities: cities
+    recentLocations: recentLocations
   })
 }
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.VISITED_CITIES_REQUEST]: request,
-  [Types.VISITED_CITIES_SUCCESS]: success
+  [Types.RECENT_LOCATIONS_REQUEST]: request,
+  [Types.RECENT_LOCATIONS_SUCCESS]: success
 })

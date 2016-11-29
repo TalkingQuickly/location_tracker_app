@@ -51,6 +51,7 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   //
   const getCity = (city) => api.get('weather', {q: city})
   const getVisitedCities = () => api.get('visited_cities')
+  const getRecentLocations = () => api.get('locations')
 
   // ------
   // STEP 3
@@ -67,7 +68,8 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   return {
     // a list of the API functions from step 2
     getCity,
-    getVisitedCities
+    getVisitedCities,
+    getRecentLocations
   }
 }
 
