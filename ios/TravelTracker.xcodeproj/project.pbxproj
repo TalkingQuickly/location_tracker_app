@@ -34,8 +34,8 @@
 		922B447822264E7C8180D0A0 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C6F7775DB84758B8376835 /* libReactNativeConfig.a */; };
 		98AB1262078508CB3E3A3DEC /* libPods-TravelTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 124E4C1648B33A28FD9BCB5F /* libPods-TravelTracker.a */; };
 		ADA5E272F5FA4422B0C66555 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DDB082C2A294F48944443EA /* Entypo.ttf */; };
-		B530772A1DEC55A1000DA013 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B53077291DEC55A1000DA013 /* libReact.a */; };
 		B54786421DCF284800743C81 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B54786411DCF284800743C81 /* RNBackgroundFetch+AppDelegate.m */; };
+		B5899C971E8FD08B000028A1 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5899C961E8FD08B000028A1 /* libReact.a */; };
 		C74C9835CAD8444F834774DF /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88168FC184A141E7B939FCCB /* Octicons.ttf */; };
 		F19CA0C3BF1B4E63BF471F33 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2BB9D8231D441FB9B18EA0 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
@@ -250,6 +250,7 @@
 		90FD2F6F0115427494D94A29 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		B53077291DEC55A1000DA013 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "../../../Library/Developer/Xcode/DerivedData/TravelTracker-cdfgirxotuoeorgbsfarituasezq/Build/Products/Debug-iphoneos/React/libReact.a"; sourceTree = "<group>"; };
 		B54786411DCF284800743C81 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
+		B5899C961E8FD08B000028A1 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "../../../../Library/Developer/Xcode/DerivedData/TravelTracker-cdfgirxotuoeorgbsfarituasezq/Build/Products/Debug-iphonesimulator/React/libReact.a"; sourceTree = "<group>"; };
 		C93C8446CF8D4376AC2DC66E /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		CB9B963AD6F749789C8095B5 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		DA9731FFFCA74266A484FB11 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
@@ -272,7 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B530772A1DEC55A1000DA013 /* libReact.a in Frameworks */,
+				B5899C971E8FD08B000028A1 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -527,6 +528,7 @@
 		D5F2794756D0F9E188F509A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5899C961E8FD08B000028A1 /* libReact.a */,
 				B53077291DEC55A1000DA013 /* libReact.a */,
 				124E4C1648B33A28FD9BCB5F /* libPods-TravelTracker.a */,
 				E870F65025F8608D83042C4F /* libPods-TravelTrackerTests.a */,

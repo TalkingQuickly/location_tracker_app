@@ -32,7 +32,8 @@ class NavigationRouter extends Component {
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial key='locationHistory' component={LocationHistoryScreen} title='Location History' />
+            <Scene key='login' component={LoginScreen} title='Login' />
+            <Scene key='locationHistory' component={LocationHistoryScreen} title='Location History' />
             <Scene key='locationHistoryMap' component={LocationHistoryMapScreen} title='Location History Map' />
           </Scene>
         </Scene>

@@ -44,7 +44,7 @@ class LoginScreen extends React.Component {
   constructor (props: LoginScreenProps) {
     super(props)
     this.state = {
-      username: 'reactnative@infinite.red',
+      username: 'ben@hillsbede.co.uk',
       password: 'password',
       visibleHeight: Metrics.screenHeight,
       topLogo: { width: Metrics.screenWidth }
@@ -178,7 +178,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    attemptLogin: (username, password) => dispatch(LoginActions.loginRequest(username, password))
+    attemptLogin: (email, password) => dispatch(LoginActions.loginRequest(email, password))
   }
 }
 

@@ -4,6 +4,7 @@ import config from '../Config/AppConfig'
 
 // our "constructor"
 const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
+
   // ------
   // STEP 1
   // ------
@@ -20,11 +21,6 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     },
     // 10 second timeout...
     timeout: 10000
-  })
-
-  // Force OpenWeather API Key on all requests
-  api.addRequestTransform((request) => {
-    request.params['token'] = config.apiToken
   })
 
   // Wrap api's addMonitor to allow the calling code to attach
@@ -50,6 +46,36 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   // way at this level.
   //
   const getCity = (city) => api.get('weather', {q: city})
+  //
+
+  // Setting up users and sessions
+  const signup = (email, password, password_confirmation) => api.post(
+    'users',
+    {
+      user: {
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation
+      }
+    }
+  )
+
+  const login = (email, password, remember) => api.post(
+    'users/sign_in',
+    {
+      user: {
+        email: email,
+        password: password,
+        remember: remember
+      }
+    }
+  )
+
+  const logout = () => api.delete(
+    'users/sign_out'
+  )
+
+  // Location information
   const getVisitedCities = () => api.get('visited_cities')
   const getRecentLocations = () => api.get('locations')
 
@@ -67,6 +93,9 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   //
   return {
     // a list of the API functions from step 2
+    signup,
+    login,
+    logout,
     getCity,
     getVisitedCities,
     getRecentLocations
