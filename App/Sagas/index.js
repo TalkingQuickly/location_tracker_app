@@ -6,6 +6,7 @@ import DebugSettings from '../Config/DebugSettings'
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
+import { StartupNativeTypes} from '../Redux/StartupNativeRedux'
 import { TemperatureTypes } from '../Redux/TemperatureRedux'
 import { LoginTypes } from '../Redux/LoginRedux'
 import { LocationHistoryTypes } from '../Redux/LocationHistoryRedux'
@@ -14,6 +15,7 @@ import { LocationHistoryMapTypes } from '../Redux/LocationHistoryMapRedux'
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
+import { startupNative } from './StartupNativeSagas'
 import { login } from './LoginSagas'
 import { getTemperature } from './TemperatureSagas'
 import { getVisitedCities } from './LocationHistorySagas'
@@ -29,7 +31,8 @@ const api = DebugSettings.useFixtures ? FixtureAPI : API.create()
 
 export default function * root () {
   yield [
-    takeLatest(StartupTypes.STARTUP, startup),
+    takeLatest(StartupTypes.STARTUP, startup, api),
+    takeLatest(StartupNativeTypes.STARTUP_NATIVE, startupNative, api),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
 
     // some sagas receive extra parameters in addition to an action

@@ -17,7 +17,8 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
 
     // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      'Cache-Control': 'no-cache',
+      'SomeHeader': 'Ben'
     },
     // 10 second timeout...
     timeout: 10000
@@ -31,22 +32,12 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     api.addMonitor(console.tron.apisauce)
   }
 
-  // ------
-  // STEP 2
-  // ------
-  //
-  // Define some functions that call the api.  The goal is to provide
-  // a thin wrapper of the api layer providing nicer feeling functions
-  // rather than "get", "post" and friends.
-  //
-  // I generally don't like wrapping the output at this level because
-  // sometimes specific actions need to be take on `403` or `401`, etc.
-  //
-  // Since we can't hide from that, we embrace it by getting out of the
-  // way at this level.
-  //
+  const setAuthToken = (token) => {
+    console.log("setting token to: " + token)
+    api.setHeader('Authorization', token)
+  }
+
   const getCity = (city) => api.get('weather', {q: city})
-  //
 
   // Setting up users and sessions
   const signup = (email, password, password_confirmation) => api.post(
@@ -93,6 +84,7 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   //
   return {
     // a list of the API functions from step 2
+    setAuthToken,
     signup,
     login,
     logout,

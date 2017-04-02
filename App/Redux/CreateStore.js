@@ -8,7 +8,7 @@ import RehydrationServices from '../Services/RehydrationServices'
 import ReduxPersist from '../Config/ReduxPersist'
 
 // creates the store
-export default (rootReducer, rootSaga) => {
+export default (rootReducer, rootSaga, startupCallback) => {
   /* ------------- Redux Configuration ------------- */
 
   const middleware = []
@@ -50,7 +50,7 @@ export default (rootReducer, rootSaga) => {
 
   // configure persistStore and check reducer version number
   if (ReduxPersist.active) {
-    RehydrationServices.updateReducers(store)
+    RehydrationServices.updateReducers(store, startupCallback)
   }
 
   // kick off root saga

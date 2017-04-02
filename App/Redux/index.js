@@ -4,7 +4,7 @@ import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
 
-export default () => {
+export default (callbacks) => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     temperature: require('./TemperatureRedux').reducer,
@@ -13,5 +13,5 @@ export default () => {
     locationHistoryMap: require('./LocationHistoryMapRedux').reducer
   })
 
-  return configureStore(rootReducer, rootSaga)
+  return configureStore(rootReducer, rootSaga, callbacks)
 }
