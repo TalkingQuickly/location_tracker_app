@@ -1,5 +1,4 @@
 import { call, select } from 'redux-saga/effects'
-import { is } from 'ramda'
 
 // exported to make available for tests
 export const selectToken = (state) => state.login.token

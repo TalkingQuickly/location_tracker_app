@@ -26,7 +26,6 @@ class LocationHistoryScreen extends React.Component {
     const cities = []
     const rowHasChanged = (r1, r2) => r1.id !== r2.id
     const ds = new ListView.DataSource({rowHasChanged})
-    console.log("point1")
     this.state = {
       dataSource: ds.cloneWithRows(cities)
     }
@@ -41,6 +40,7 @@ class LocationHistoryScreen extends React.Component {
   }
 
   _renderRow (rowData) {
+    console.log(rowData)
     return (
       <View style={styles.row}>
         <Text style={styles.boldLabel}>{rowData.country}</Text>

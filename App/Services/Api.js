@@ -24,14 +24,6 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     timeout: 10000
   })
 
-  // Wrap api's addMonitor to allow the calling code to attach
-  // additional monitors in the future.  But only in __DEV__ and only
-  // if we've attached Reactotron to console (it isn't during unit tests).
-  if (__DEV__ && console.tron) {
-    console.tron.log('Hello, I\'m an example of how to log via Reactotron.')
-    api.addMonitor(console.tron.apisauce)
-  }
-
   const setAuthToken = (token) => {
     console.log("setting token to: " + token)
     api.setHeader('Authorization', token)
