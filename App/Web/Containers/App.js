@@ -1,5 +1,5 @@
 // import dependancies
-import {createStore, applyMiddleware} from 'redux'
+import { applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
@@ -11,54 +11,29 @@ import reduxLogger from 'redux-logger'
 import reduxThunk from 'redux-thunk'
 import Api from '../../Services/Api'
 import cookie from 'react-cookie'
-
+import StartupActions from '../Redux/StartupRedux'
 import { ENV } from '../env.js'
+import Base from '../Components/Placeholder'
+import { combineReducers } from 'redux'
+import configureStore from '../Redux/CreateStore'
+import createStore from '../Redux'
 
+const callbacks = {
+  onLoggedIn: () => {},
+  onLoggedOut: () => {}
+}
 
-// import internal dependencies
-/*import pollReducer from '../Redux'
-import LoginActions from '../Redux/LoginRedux'
-import PollsShowActions from '../Redux/PollsShowRedux'
+//create the store
+const store = createStore(StartupActions.startup(callbacks))
 
-// import components
-import Base from '../Components/Base/Base'
-import ShowPoll from '../Components/ShowPoll/ShowPoll'
-import Login from '../Components/Login/Login'
-*/
-
-console.log("let's do this now!")
-
-// import sagas
-import rootSaga from '../../Sagas'
-
-const sagaMiddleWare = createSagaMiddleware();
-
-const middlewares = [
-  promiseMiddleware(),
-  sagaMiddleWare,
-  reduxThunk
-]
-
-if (ENV === 'development')
-  console.log("In development environment")
-  middlewares.push(reduxLogger())
-
-// create single store
-let store = createStore(pollReducer,
-  applyMiddleware(...middlewares)
-)
-
-let history = syncHistoryWithStore(browserHistory, store)
-sagaMiddleWare.run(rootSaga)
-
-//store.dispatch(LoginActions.setToken(cookie.load('token')))
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Base}>
-        <Route path="polls/:pollId" component={ShowPoll} requireLogin={true}/>
-        <Route path="login" component={Login} />
+        <Route path="polls/:pollId" component={Base} />
+        <Route path="login" component={Base} />
       </Route>
     </Router>
   </Provider>
