@@ -10,7 +10,7 @@ export const selectToken = (state) => state.login.token
 
 export function * startupNative (api, { callbacks } ) {
   const token = yield select(selectToken)
-  if (token === undefined) {
+  if (token === null) {
     yield call(callbacks.onLoggedOut)
   } else {
     yield call(api.setAuthToken, token)
