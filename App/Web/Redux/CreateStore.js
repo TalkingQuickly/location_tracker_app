@@ -31,6 +31,8 @@ export default (rootReducer, rootSaga, startupCallback) => {
     enhancers.push(autoRehydrate())
   }
 
+  enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
   const store = createStore(rootReducer, compose(...enhancers))
 
   // configure persistStore and check reducer version number
