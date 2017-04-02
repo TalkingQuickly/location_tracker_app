@@ -12,3 +12,7 @@ export function * login (api, { email , password , onSuccess}) {
 
   }
 }
+
+export function * logout({ onSuccess }) {
+  yield call(onSuccess)
+}

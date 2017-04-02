@@ -16,7 +16,7 @@ import { LocationHistoryMapTypes } from '../Redux/LocationHistoryMapRedux'
 
 import { startup } from './StartupSagas'
 import { startupNative } from './StartupNativeSagas'
-import { login } from './LoginSagas'
+import { login, logout } from './LoginSagas'
 import { getTemperature } from './TemperatureSagas'
 import { getVisitedCities } from './LocationHistorySagas'
 import { getRecentLocations } from './LocationHistoryMapSagas'
@@ -34,6 +34,7 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup, api),
     takeLatest(StartupNativeTypes.STARTUP_NATIVE, startupNative, api),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
+    takeLatest(LoginTypes.LOGOUT, logout),
 
     // some sagas receive extra parameters in addition to an action
     takeLatest(TemperatureTypes.TEMPERATURE_REQUEST, getTemperature, api),
