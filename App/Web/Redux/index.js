@@ -14,6 +14,7 @@ export default (callbacks) => {
     locationHistory: require('../../Redux/LocationHistoryRedux').reducer,
     locationHistoryMap: require('../../Redux/LocationHistoryMapRedux').reducer,
     routing: routerReducer,
+    startup: require('./StartupRedux').reducer,
     form: formReducer
   })
 

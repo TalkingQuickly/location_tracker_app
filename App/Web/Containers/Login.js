@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import LoginActions from '../../Redux/LoginRedux'
 import LoginForm from '../Components/Login/LoginForm'
+import { Redirect } from 'react-router'
+import { push } from 'react-router-redux'
 
 class Login extends Component {
 
@@ -10,31 +12,36 @@ class Login extends Component {
       this.props.loginRequest(
         form.email,
         form.password,
-        this.handleLoginSuccess
+        this.handleLoginSuccess()
       )
     }
   }
 
   handleLoginSuccess() {
-    console.log("We logged in baby")
+    return () => {
+      console.log("We logged in baby")
+    }
   }
 
   render() {
     return(
-      <LoginForm onSubmit={this.handleSubmit()} />
+      <div>
+        <LoginForm onSubmit={this.handleSubmit()} />
+      </div>
     )
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginRequest: (email, password, onSuccess) => dispatch(LoginActions.loginRequest(email, password, onSuccess))
+    loginRequest: (email, password, onSuccess) => dispatch(LoginActions.loginRequest(email, password, onSuccess)),
+    redirect: () => dispatch(push('/sadfasfasfa'))
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    // login: state.login
+    login: state.login
   }
 }
 

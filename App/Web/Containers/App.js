@@ -13,11 +13,10 @@ import Api from '../../Services/Api'
 import cookie from 'react-cookie'
 import StartupActions from '../Redux/StartupRedux'
 import { ENV } from '../env.js'
-import Base from '../Components/Placeholder'
 import { combineReducers } from 'redux'
 import configureStore from '../Redux/CreateStore'
 import createStore from '../Redux'
-import Login from './Login.js'
+import RootContainer from './RootContainer'
 
 const callbacks = {
   onLoggedIn: () => {},
@@ -31,9 +30,6 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render((
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={Login}>
-      </Route>
-    </Router>
+    <RootContainer />
   </Provider>
 ), document.getElementById('react-base'))
