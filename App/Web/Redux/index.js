@@ -4,6 +4,7 @@ import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
 import { routerReducer } from 'react-router-redux'
+import { reducer as formReducer } from 'redux-form'
 
 
 export default (callbacks) => {
@@ -12,7 +13,8 @@ export default (callbacks) => {
     login: require('../../Redux/LoginRedux').reducer,
     locationHistory: require('../../Redux/LocationHistoryRedux').reducer,
     locationHistoryMap: require('../../Redux/LocationHistoryMapRedux').reducer,
-    routing: routerReducer
+    routing: routerReducer,
+    form: formReducer
   })
 
   return configureStore(rootReducer, rootSaga, callbacks)

@@ -17,6 +17,7 @@ import Base from '../Components/Placeholder'
 import { combineReducers } from 'redux'
 import configureStore from '../Redux/CreateStore'
 import createStore from '../Redux'
+import Login from './Login.js'
 
 const callbacks = {
   onLoggedIn: () => {},
@@ -31,9 +32,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Base}>
-        <Route path="polls/:pollId" component={Base} />
-        <Route path="login" component={Base} />
+      <Route path="/" component={Login}>
       </Route>
     </Router>
   </Provider>
