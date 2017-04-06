@@ -3,6 +3,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import Placeholder from '../Components/Placeholder'
 import Login from './Login.js'
 import {connect} from 'react-redux'
+import LoginActions from '../../Redux/LoginRedux'
 
 class RootContainer extends Component {
 
@@ -16,24 +17,47 @@ class RootContainer extends Component {
     }
   }
 
+  handleLogout() {
+    return () =>
+      this.props.handleLogout(this.onLogoutSuccess())
+  }
+
+  onLogoutSuccess() {
+    return() =>
+      browserHistory.push('/login')
+  }
+
   render () {
     // don't render routes until we've rehydrated the store
     if (this.props.startup.ready !== true) {
       return(<div>Loading...</div>)
     }
-    // once we have the store rehydrated, then render the actual router
+		const { token } = this.props.login
     return(
-      <Router history={browserHistory}>
-        <Route path="/" component={Placeholder} onEnter={this.checkAuth()} />
-        <Route path="/login" component={Login} />
-      </Router>
+			<div>
+				<nav className="navbar navbar-default">
+					<div className="container-fluid">	
+						<ul className="nav navbar-nav">
+								<li className="active"><a href="#">Home</a></li>
+						</ul>
+						<ul className="nav navbar-nav navbar-right">
+              { token &&
+							<li className=""><a onClick={this.handleLogout()}>Logout</a></li>
+              }
+						</ul>
+					</div>
+				</nav>
+				<Router history={browserHistory}>
+					<Route path="/" component={Placeholder} onEnter={this.checkAuth()} />
+					<Route path="/login" component={Login} />
+				</Router>
+			</div>
     )
   }
 }
 
 const mapStateToDispatch = (dispatch) => ({
-  //startup: () => dispatch(StartupActions.startup()),
-  //startupNative: () => dispatch(StartupNativeActions.startupNative())
+	handleLogout: (onLogout) => dispatch(LoginActions.logout(onLogout))
 })
 
 const mapStateToProps = (state) => {

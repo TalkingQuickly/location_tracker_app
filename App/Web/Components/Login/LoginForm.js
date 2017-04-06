@@ -6,15 +6,15 @@ class LoginForm extends Component {
     const { handleSubmit } = this.props
     return (
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="text"/>
+          <Field name="email" component="input" type="text" className="form-control"/>
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Password</label>
-          <Field name="password" component="input" type="password"/>
+          <Field name="password" component="input" type="password" className="form-control"/>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn btn-default">Submit</button>
       </form>
     )
   }
