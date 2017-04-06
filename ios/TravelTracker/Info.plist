@@ -70,9 +70,8 @@
       <string>location</string>
     </array>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Background location access to determine which countries you&apos;ve visited</string>
+    <string>Background location access to determine which countries you've visited</string>
     <key>NSMotionUsageDescription</key>
-    <string>Motion access to determine how you&apos;re moving on your travels</string>
-
+    <string>Motion access to determine how you're moving on your travels</string>
   </dict>
 </plist>
