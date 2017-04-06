@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import LoginActions from '../../Redux/LoginRedux'
 import LoginForm from '../Components/Login/LoginForm'
-import { Redirect } from 'react-router'
-import { push } from 'react-router-redux'
 
 class Login extends Component {
 
