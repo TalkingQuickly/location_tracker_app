@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import LoginActions from '../../Redux/LoginRedux'
 import LoginForm from '../Components/Login/LoginForm'
+import { browserHistory } from 'react-router'
 
 class Login extends Component {
 
@@ -17,7 +18,7 @@ class Login extends Component {
 
   handleLoginSuccess() {
     return () => {
-      console.log("We logged in baby")
+      browserHistory.push('/')
     }
   }
 
@@ -32,8 +33,7 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginRequest: (email, password, onSuccess) => dispatch(LoginActions.loginRequest(email, password, onSuccess)),
-    redirect: () => dispatch(push('/sadfasfasfa'))
+    loginRequest: (email, password, onSuccess) => dispatch(LoginActions.loginRequest(email, password, onSuccess))
   }
 }
 
