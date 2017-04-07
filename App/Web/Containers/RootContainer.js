@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import Placeholder from '../Components/Placeholder'
+import LocationHistory from '../Containers/LocationHistory'
 import Login from './Login.js'
 import {connect} from 'react-redux'
 import LoginActions from '../../Redux/LoginRedux'
@@ -22,6 +23,10 @@ class RootContainer extends Component {
       this.props.handleLogout(this.onLogoutSuccess())
   }
 
+  handleOnClickCountries() {
+    browserHistory.push('/countries')
+  }
+
   onLogoutSuccess() {
     return() =>
       browserHistory.push('/login')
@@ -38,7 +43,8 @@ class RootContainer extends Component {
 				<nav className="navbar navbar-default">
 					<div className="container-fluid">	
 						<ul className="nav navbar-nav">
-								<li className="active"><a href="#">Home</a></li>
+								<li className=""><a href="#">Home</a></li>
+								<li className=""><a onClick={this.handleOnClickCountries}>Countries</a></li>
 						</ul>
 						<ul className="nav navbar-nav navbar-right">
               { token &&
@@ -49,6 +55,7 @@ class RootContainer extends Component {
 				</nav>
 				<Router history={browserHistory}>
 					<Route path="/" component={Placeholder} onEnter={this.checkAuth()} />
+					<Route path="/countries" component={LocationHistory} onEnter={this.checkAuth()} />
 					<Route path="/login" component={Login} />
 				</Router>
 			</div>

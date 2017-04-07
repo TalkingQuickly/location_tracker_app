@@ -18,7 +18,7 @@ class Login extends Component {
 
   handleLoginSuccess() {
     return () => {
-      browserHistory.push('/')
+      browserHistory.push('/countries')
     }
   }
 
