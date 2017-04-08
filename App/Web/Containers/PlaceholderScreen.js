@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { browserHistory } from 'react-router'
 
-class Placeholder extends Component {
+class PlaceholderScreen extends Component {
 
   render () {
     return(
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Placeholder)
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceholderScreen)

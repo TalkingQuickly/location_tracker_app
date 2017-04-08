@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
-import Placeholder from '../Components/Placeholder'
-import LocationHistory from '../Containers/LocationHistory'
-import Login from './Login.js'
 import {connect} from 'react-redux'
 import LoginActions from '../../Redux/LoginRedux'
+
+//Individual Screens
+import LoginScreen from './LoginScreen.js'
+import PlaceholderScreen from '../Containers/PlaceholderScreen'
+import LocationHistoryScreen from '../Containers/LocationHistoryScreen'
 
 class RootContainer extends Component {
 
@@ -54,9 +56,9 @@ class RootContainer extends Component {
 					</div>
 				</nav>
 				<Router history={browserHistory}>
-					<Route path="/" component={Placeholder} onEnter={this.checkAuth()} />
-					<Route path="/countries" component={LocationHistory} onEnter={this.checkAuth()} />
-					<Route path="/login" component={Login} />
+					<Route path="/" component={PlaceholderScreen} onEnter={this.checkAuth()} />
+					<Route path="/countries" component={LocationHistoryScreen} onEnter={this.checkAuth()} />
+					<Route path="/login" component={LoginScreen} />
 				</Router>
 			</div>
     )

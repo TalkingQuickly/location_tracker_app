@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { browserHistory } from 'react-router'
 import LocationHistoryActions from '../../Redux/LocationHistoryRedux'
 
-class LocationHistory extends Component {
+class LocationHistoryScreen extends Component {
 
   componentDidMount() {
     // update the list of countries
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LocationHistory)
+export default connect(mapStateToProps, mapDispatchToProps)(LocationHistoryScreen)

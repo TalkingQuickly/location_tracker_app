@@ -4,7 +4,7 @@ import LoginActions from '../../Redux/LoginRedux'
 import LoginForm from '../Components/Login/LoginForm'
 import { browserHistory } from 'react-router'
 
-class Login extends Component {
+class LoginScreen extends Component {
 
   handleSubmit(form) {
     return (form) => {
@@ -43,4 +43,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)
