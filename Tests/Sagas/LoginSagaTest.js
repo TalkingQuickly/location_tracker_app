@@ -15,39 +15,30 @@ test('first calls API', (t) => {
   )
 })
 
-test('success path - stores API token', (t) => {
-  const validLogin = {email: 'something', password: 'password'}
-  const response = FixtureAPI.login("something", "password")
-  const step = stepper(login(FixtureAPI, validLogin))
+test('success path' , (t) => {
+  const onSuccess = () =>
+    "it works"
 
-  step()
-  t.deepEqual(
-    step(response),
-    put(LoginActions.loginSuccess(response.data.token))
-  )
-})
-
-test('success path - calls success callback', (t) => {
-  let i = 0;
-  const onSuccess = () => {
-    i++
-  }
   const validLogin = {
     email: 'something',
     password: 'password',
     onSuccess: onSuccess
   }
+
   const response = FixtureAPI.login("something", "password")
   const step = stepper(login(FixtureAPI, validLogin))
 
   step()
-  step(response)
+
+  t.deepEqual(
+    step(response),
+    put(LoginActions.loginSuccess(response.data.token))
+  )
 
   t.deepEqual(
     step(),
     call(onSuccess)
   )
-
 })
 
 test('failure path', (t) => {
