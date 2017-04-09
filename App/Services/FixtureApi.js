@@ -10,5 +10,20 @@ export default {
       ok: true,
       data: city.toLowerCase() === 'boise' ? boiseData : torontoData
     }
+  },
+
+  login: (email: String, password: String) => {
+    if (password === "password") {
+      return {
+        ok: true,
+        data: {
+          token: "avalidapitoken"
+        }
+      }
+    } else {
+      return {
+        ok: false
+      }
+    }
   }
 }
