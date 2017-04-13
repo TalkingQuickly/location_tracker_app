@@ -84,7 +84,11 @@ function scripts(watch) {
   if (watch)
     bundler = watchify(bundler)
 
-  bundler.transform('babelify', {presets: ['react', 'es2015']})
+  bundler.transform('babelify', {
+    plugins: [
+      'transform-runtime'
+    ]
+  })
 
   rebundle = function() {
     gutil.log('rebundling started')
