@@ -44,6 +44,8 @@ class LocationHistoryScreen extends React.Component {
     return (
       <View style={styles.row}>
         <Text style={styles.boldLabel}>{rowData.name}</Text>
+        <Text style={styles.boldLabel}>{rowData.arrived} - {rowData.departed}</Text>
+        <Text style={styles.boldLabel}>({rowData.duration} days)</Text>
       </View>
     )
   }
