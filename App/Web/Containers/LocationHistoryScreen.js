@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { browserHistory } from 'react-router'
-import LocationHistoryActions from '../../Redux/LocationHistoryRedux'
+import VisitedCountriesActions from '../../Redux/VisitedCountriesRedux'
 
 class LocationHistoryScreen extends Component {
 
@@ -11,16 +11,16 @@ class LocationHistoryScreen extends Component {
   }
 
   render () {
-    const { visitedCities } = this.props.locationHistory
+    const { visitedCountries } = this.props.visitedCountries
     return(
       <div>
         <h2>
           Countries
         </h2>
         <ul>
-        {visitedCities.map(function(city, i) {
+        {visitedCountries.map(function(country, i) {
           return(
-            <li key={i}>{city.name}</li>
+            <li key={i}>{country.name}</li>
           )
         })}
 
@@ -32,13 +32,13 @@ class LocationHistoryScreen extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestLocationHistory: () => dispatch(LocationHistoryActions.visitedCitiesRequest())
+    requestLocationHistory: () => dispatch(VisitedCountriesActions.visitedCountriesRequest())
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    locationHistory: state.locationHistory
+    visitedCountries: state.visitedCountries
   }
 }
 

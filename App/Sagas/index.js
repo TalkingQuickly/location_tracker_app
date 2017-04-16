@@ -6,7 +6,8 @@ import API from '../Services/Api'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { StartupNativeTypes} from '../Redux/StartupNativeRedux'
 import { LoginTypes } from '../Redux/LoginRedux'
-import { LocationHistoryTypes } from '../Redux/LocationHistoryRedux'
+import { VisitedCitiesTypes } from '../Redux/VisitedCitiesRedux'
+import { VisitedCountriesTypes } from '../Redux/VisitedCountriesRedux'
 import { LocationHistoryMapTypes } from '../Redux/LocationHistoryMapRedux'
 
 /* ------------- Sagas ------------- */
@@ -14,7 +15,8 @@ import { LocationHistoryMapTypes } from '../Redux/LocationHistoryMapRedux'
 import { startup } from './StartupSagas'
 import { startupNative } from './StartupNativeSagas'
 import { login, logout } from './LoginSagas'
-import { getVisitedCities } from './LocationHistorySagas'
+import { getVisitedCities } from './VisitedCitiesSagas'
+import { getVisitedCountries } from './VisitedCountriesSagas'
 import { getRecentLocations } from './LocationHistoryMapSagas'
 
 /* ------------- API ------------- */
@@ -31,7 +33,8 @@ export default function * root () {
     takeLatest(StartupNativeTypes.STARTUP_NATIVE, startupNative, api),
     takeLatest(LoginTypes.LOGIN_REQUEST, login, api),
     takeLatest(LoginTypes.LOGOUT, logout),
-    takeLatest(LocationHistoryTypes.VISITED_CITIES_REQUEST, getVisitedCities, api),
+    takeLatest(VisitedCitiesTypes.VISITED_CITIES_REQUEST, getVisitedCities, api),
+    takeLatest(VisitedCountriesTypes.VISITED_COUNTRIES_REQUEST, getVisitedCountries, api),
     takeLatest(LocationHistoryMapTypes.RECENT_LOCATIONS_REQUEST, getRecentLocations, api)
   ]
 }

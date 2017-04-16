@@ -12,7 +12,7 @@ import Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
 // Actions
-import LocationHistoryActions from '../Redux/LocationHistoryRedux'
+import VisitedCountriesActions from '../Redux/VisitedCountriesRedux'
 
 // Styles
 import styles from './Styles/LocationHistoryScreenStyle'
@@ -23,11 +23,11 @@ import I18n from 'react-native-i18n'
 class LocationHistoryScreen extends React.Component {
   constructor (props) {
     super(props)
-    const cities = []
+    const countries= []
     const rowHasChanged = (r1, r2) => r1.id !== r2.id
     const ds = new ListView.DataSource({rowHasChanged})
     this.state = {
-      dataSource: ds.cloneWithRows(cities)
+      dataSource: ds.cloneWithRows(countries)
     }
   }
 
@@ -43,15 +43,15 @@ class LocationHistoryScreen extends React.Component {
     console.log(rowData)
     return (
       <View style={styles.row}>
-        <Text style={styles.boldLabel}>{rowData.country}</Text>
+        <Text style={styles.boldLabel}>{rowData.name}</Text>
       </View>
     )
   }
 
   componentWillReceiveProps (newProps) {
-    if (newProps.cities) {
+    if (newProps.countries) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(newProps.cities)
+        dataSource: this.state.dataSource.cloneWithRows(newProps.countries)
       })
     }
   }
@@ -84,14 +84,14 @@ class LocationHistoryScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    fetching: state.locationHistory.fetching,
-    cities: state.locationHistory.visitedCities
+    fetching: state.visitedCountries.fetching,
+    countries: state.visitedCountries.visitedCountries
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    attemptGetRecentlyVisited: () => dispatch(LocationHistoryActions.visitedCitiesRequest())
+    attemptGetRecentlyVisited: () => dispatch(VisitedCountriesActions.visitedCountriesRequest())
   }
 }
 

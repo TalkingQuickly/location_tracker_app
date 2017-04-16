@@ -9,8 +9,9 @@ export default (callbacks) => {
   const rootReducer = combineReducers({
     temperature: require('./TemperatureRedux').reducer,
     login: require('./LoginRedux').reducer,
-    locationHistory: require('./LocationHistoryRedux').reducer,
-    locationHistoryMap: require('./LocationHistoryMapRedux').reducer
+    locationHistoryMap: require('./LocationHistoryMapRedux').reducer,
+    visitedCities: require('./VisitedCitiesRedux').reducer,
+    visitedCountries: require('./VisitedCountriesRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga, callbacks)

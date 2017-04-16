@@ -11,7 +11,7 @@ export default (callbacks) => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
     login: require('../../Redux/LoginRedux').reducer,
-    locationHistory: require('../../Redux/LocationHistoryRedux').reducer,
+    visitedCountries: require('../../Redux/VisitedCountriesRedux').reducer,
     locationHistoryMap: require('../../Redux/LocationHistoryMapRedux').reducer,
     routing: routerReducer,
     startup: require('./StartupRedux').reducer,

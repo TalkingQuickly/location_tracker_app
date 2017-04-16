@@ -60,6 +60,7 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
 
   // Location information
   const getVisitedCities = () => api.get('visited_cities')
+  const getVisitedCountries = () => api.get('visited_countries')
   const getRecentLocations = () => api.get('locations')
 
   // ------
@@ -82,6 +83,7 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     logout,
     getCity,
     getVisitedCities,
+    getVisitedCountries,
     getRecentLocations
   }
 }
