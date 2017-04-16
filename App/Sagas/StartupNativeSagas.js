@@ -15,25 +15,26 @@ export function * startupNative (api, { callbacks } ) {
     yield call(api.setAuthToken, token)
     const { baseUrl } = config
     BackgroundGeolocation.configure({
-      // Geolocation Config
-      desiredAccuracy: 0,
-      stationaryRadius: 25,
-      distanceFilter: 10,
-      // Activity Recognition
-      stopTimeout: 1,
-      // Application config
-      debug: false, // <-- enable for debug sounds & notifications
-      logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
-      stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
-      startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
-      // HTTP / SQLite config
-      batchSync: true,
-      url: `${baseUrl}locations`,
-      //autoSync: true,         // <-- POST each location immediately to server
-      params: {               // <-- Optional HTTP params
-        "token": token
-      }
+			desiredAccuracy: 0,
+      stationaryRadius: 1,
+      distanceFilter: 1,
+      locationTimeout: 30,
+      notificationTitle: 'Background tracking',
+      notificationText: 'enabled',
+      debug: true,
+      startOnBoot: true,
+      stopOnTerminate: false,
+      locationProvider: BackgroundGeolocation.provider.ANDROID_ACTIVITY_PROVIDER,
+      interval: 1000,
+      fastestInterval: 5000,
+      activitiesInterval: 10000,
+      stopOnStillActivity: false,
+      syncUrl: `${baseUrl}locations?token=${token}`,
+			syncThreshold: 1
     })
+    BackgroundGeolocation.start(() => {
+      console.log('[DEBUG] BackgroundGeolocation started successfully');    
+    });
     yield call(callbacks.onLoggedIn())
   }
 }
