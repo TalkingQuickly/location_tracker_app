@@ -17,6 +17,7 @@ import {Images, Metrics} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
+import setupLocationTracking from '../Services/LocationTrackingService'
 
 type LoginScreenProps = {
   dispatch: () => any,
@@ -103,6 +104,7 @@ class LoginScreen extends React.Component {
   }
 
   handleLoginSuccess = () => {
+    setupLocationTracking()
     NavigationActions.locationHistory()
   }
 
