@@ -7,7 +7,6 @@ export const selectToken = (state) => state.login.token
 
 export function * startupNative (api, { callbacks } ) {
   const token = yield select(selectToken)
-  console.log(setupLocationTracking)
   if (token === null) {
     yield call(callbacks.onLoggedOut)
   } else {
