@@ -40,11 +40,12 @@ class LocationHistoryScreen extends React.Component {
   }
 
   _renderRow (rowData) {
-    console.log(rowData)
     return (
-      <View style={styles.row}>
-        <Text style={styles.boldLabel}>{rowData.name}</Text>
-        <Text style={styles.boldLabel}>{rowData.arrived} - {rowData.departed}</Text>
+      <View style={styles.outerRow}>
+        <View style={styles.innerColumn}>
+          <Text style={styles.countryHeading}>{rowData.name}</Text>
+          <Text style={styles.timeInCountry}>{rowData.arrived} - {rowData.departed}</Text>
+        </View>
         <Text style={styles.boldLabel}>({rowData.duration} days)</Text>
       </View>
     )
