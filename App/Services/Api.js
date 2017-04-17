@@ -24,8 +24,10 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     timeout: 10000
   })
 
+  if (__DEV__ && console.tron)
+    api.addMonitor(console.tron.apisauce)
+
   const setAuthToken = (token) => {
-    console.log("setting token to: " + token)
     api.setHeader('Authorization', token)
   }
 

@@ -4,5 +4,5 @@ export default {
   // font scaling override - RN default is on
   allowTextFontScaling: true,
   //baseUrl: 'https://talkingquickly-travel-logger.herokuapp.com/'
-  baseUrl: 'http://localhost:3000/'
+  baseUrl: 'http://192.168.1.80:3000/'
 }
