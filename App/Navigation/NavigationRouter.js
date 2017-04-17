@@ -8,17 +8,7 @@ import NavItems from './NavItems'
 import CustomNavBar from '../Components/CustomNavBar'
 
 // screens identified by the router
-import PresentationScreen from '../Containers/PresentationScreen'
-import AllComponentsScreen from '../Containers/AllComponentsScreen'
-import UsageExamplesScreen from '../Containers/UsageExamplesScreen'
 import LoginScreen from '../Containers/LoginScreen'
-import ListviewExample from '../Containers/ListviewExample'
-import ListviewGridExample from '../Containers/ListviewGridExample'
-import ListviewSectionsExample from '../Containers/ListviewSectionsExample'
-import MapviewExample from '../Containers/MapviewExample'
-import APITestingScreen from '../Containers/APITestingScreen'
-import ThemeScreen from '../Containers/ThemeScreen'
-import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 import LocationHistoryScreen from '../Containers/LocationHistoryScreen'
 import LocationHistoryMapScreen from '../Containers/LocationHistoryMapScreen'
 

@@ -26,5 +26,6 @@ export default StyleSheet.create({
   },
     timeInCountry: {
     fontSize: 14,
+    color: 'grey'
   }
 })
