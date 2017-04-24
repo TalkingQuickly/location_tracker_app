@@ -12,7 +12,7 @@ import Animatable from 'react-native-animatable'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 
 // Actions
-import VisitedCountriesActions from '../Redux/VisitedCountriesRedux'
+import VisitedCountriesActions from '../../Shared/Redux/VisitedCountriesRedux'
 
 // Styles
 import styles from './Styles/LocationHistoryScreenStyle'

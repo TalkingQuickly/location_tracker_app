@@ -1,23 +1,23 @@
 import { takeLatest } from 'redux-saga'
-import API from '../Services/Api'
+import API from '../../Shared/Services/Api'
 
 /* ------------- Types ------------- */
 
-import { StartupTypes } from '../Redux/StartupRedux'
-import { StartupNativeTypes} from '../Redux/StartupNativeRedux'
-import { LoginTypes } from '../Redux/LoginRedux'
-import { VisitedCitiesTypes } from '../Redux/VisitedCitiesRedux'
-import { VisitedCountriesTypes } from '../Redux/VisitedCountriesRedux'
-import { LocationHistoryMapTypes } from '../Redux/LocationHistoryMapRedux'
+import { StartupTypes } from '../../Shared/Redux/StartupRedux'
+import { StartupNativeTypes} from '../../Native/Redux/StartupNativeRedux'
+import { LoginTypes } from '../../Shared/Redux/LoginRedux'
+import { VisitedCitiesTypes } from '../../Shared/Redux/VisitedCitiesRedux'
+import { VisitedCountriesTypes } from '../../Shared/Redux/VisitedCountriesRedux'
+import { LocationHistoryMapTypes } from '../../Shared/Redux/LocationHistoryMapRedux'
 
 /* ------------- Sagas ------------- */
 
-import { startup } from './StartupSagas'
+import { startup } from '../../Shared/Sagas/StartupSagas'
 import { startupNative } from './StartupNativeSagas'
-import { login, logout } from './LoginSagas'
-import { getVisitedCities } from './VisitedCitiesSagas'
-import { getVisitedCountries } from './VisitedCountriesSagas'
-import { getRecentLocations } from './LocationHistoryMapSagas'
+import { login, logout } from '../../Shared/Sagas/LoginSagas'
+import { getVisitedCities } from '../../Shared/Sagas/VisitedCitiesSagas'
+import { getVisitedCountries } from '../../Shared/Sagas/VisitedCountriesSagas'
+import { getRecentLocations } from '../../Shared/Sagas/LocationHistoryMapSagas'
 
 /* ------------- API ------------- */
 

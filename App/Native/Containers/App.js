@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import '../I18n/I18n' // keep before root container
+import '../../Shared/I18n/I18n' // keep before root container
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import applyConfigSettings from '../Config'
 import config from '../Config/AppConfig'
-import StartupActions from '../Redux/StartupRedux'
-import StartupNativeActions from '../Redux/StartupNativeRedux'
+import StartupActions from '../../Shared/Redux/StartupRedux'
+import StartupNativeActions from '../../Native/Redux/StartupNativeRedux'
 import {Actions as NavigationActions} from 'react-native-router-flux'
 
 // Apply config overrides

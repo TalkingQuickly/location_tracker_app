@@ -4,12 +4,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { View } from 'react-native'
 import MapView from 'react-native-maps'
-import { calculateRegion } from '../Lib/MapHelpers'
+import { calculateRegion } from '../../Shared/Lib/MapHelpers'
 import MapCallout from '../Components/MapCallout'
 import Styles from './Styles/LocationHistoryMapScreenStyle'
 
 // Actions
-import LocationHistoryMapActions from '../Redux/LocationHistoryMapRedux'
+import LocationHistoryMapActions from '../../Shared/Redux/LocationHistoryMapRedux'
 
 /* ***********************************************************
 * IMPORTANT!!! Before you get started, if you are going to support Android,

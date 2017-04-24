@@ -2,17 +2,6 @@ import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 import MapView from 'react-native-maps'
 import Styles from './Styles/MapCalloutStyle'
-import ExamplesRegistry from '../Services/ExamplesRegistry'
-
-// Example
-ExamplesRegistry.add('Map Callout', () =>
-  <MapCallout
-    location={{
-      title: 'Callout Example'
-    }}
-    onPress={() => window.alert('That tickles!')}
-  />
-)
 
 type MapCalloutProps = {
   location: Object,

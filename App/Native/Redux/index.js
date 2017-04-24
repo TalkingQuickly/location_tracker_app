@@ -7,10 +7,10 @@ import rootSaga from '../Sagas/'
 export default (callbacks) => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
-    login: require('./LoginRedux').reducer,
-    locationHistoryMap: require('./LocationHistoryMapRedux').reducer,
-    visitedCities: require('./VisitedCitiesRedux').reducer,
-    visitedCountries: require('./VisitedCountriesRedux').reducer
+    login: require('../../Shared/Redux/LoginRedux').reducer,
+    locationHistoryMap: require('../../Shared/Redux/LocationHistoryMapRedux').reducer,
+    visitedCities: require('../../Shared/Redux/VisitedCitiesRedux').reducer,
+    visitedCountries: require('../../Shared/Redux/VisitedCountriesRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga, callbacks)

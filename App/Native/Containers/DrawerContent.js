@@ -7,7 +7,7 @@ import { Images } from '../Themes'
 import DrawerButton from '../Components/DrawerButton'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
-import LoginActions from '../Redux/LoginRedux'
+import LoginActions from '../../Shared/Redux/LoginRedux'
 
 class DrawerContent extends Component {
 

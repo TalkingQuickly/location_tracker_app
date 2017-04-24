@@ -14,7 +14,7 @@ import {
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics} from '../Themes'
-import LoginActions from '../Redux/LoginRedux'
+import LoginActions from '../../Shared/Redux/LoginRedux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
 import setupLocationTracking from '../Services/LocationTrackingService'
