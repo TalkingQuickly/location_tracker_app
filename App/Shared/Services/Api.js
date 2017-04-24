@@ -3,7 +3,7 @@ import apisauce from 'apisauce'
 import config from '../Config/AppConfig'
 
 // our "constructor"
-const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
+const create = () => {
 
   // ------
   // STEP 1
@@ -27,8 +27,6 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   const setAuthToken = (token) => {
     api.setHeader('Authorization', token)
   }
-
-  const getCity = (city) => api.get('weather', {q: city})
 
   // Setting up users and sessions
   const signup = (email, password, password_confirmation) => api.post(
@@ -80,7 +78,6 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     signup,
     login,
     logout,
-    getCity,
     getVisitedCities,
     getVisitedCountries,
     getRecentLocations
