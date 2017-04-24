@@ -1,8 +1,8 @@
 import test from 'ava'
 import { put, call } from 'redux-saga/effects'
-import { login } from '../../App/Sagas/LoginSagas'
-import LoginActions from '../../App/Redux/LoginRedux'
-import FixtureAPI from '../../App/Services/FixtureApi'
+import { login } from '../../App/Shared/Sagas/LoginSagas'
+import LoginActions from '../../App/Shared/Redux/LoginRedux'
+import FixtureAPI from '../../App/Shared/Services/FixtureApi'
 
 const stepper = (fn) => (mock) => fn.next(mock).value
 
@@ -33,6 +33,11 @@ test('success path' , (t) => {
   t.deepEqual(
     step(response),
     put(LoginActions.loginSuccess(response.data.token))
+  )
+
+  t.deepEqual(
+    step(),
+    call(FixtureAPI.setAuthToken, response.data.token)
   )
 
   t.deepEqual(

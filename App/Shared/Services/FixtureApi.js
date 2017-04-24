@@ -2,6 +2,9 @@
 
 export default {
 
+  setAuthToken: (token: String) => {
+  },
+
   login: (email: String, password: String) => {
     if (password === "password") {
       return {
