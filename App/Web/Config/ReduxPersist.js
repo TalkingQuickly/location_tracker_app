@@ -1,4 +1,4 @@
-import immutablePersistenceTransform from '../../Services/ImmutablePersistenceTransform'
+import immutablePersistenceTransform from '../../Shared/Services/ImmutablePersistenceTransform'
 import localForage from 'localForage'
 
 const REDUX_PERSIST = {

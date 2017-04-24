@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { browserHistory } from 'react-router'
-import VisitedCountriesActions from '../../Redux/VisitedCountriesRedux'
+import VisitedCountriesActions from '../../Shared/Redux/VisitedCountriesRedux'
 
 class LocationHistoryScreen extends Component {
 

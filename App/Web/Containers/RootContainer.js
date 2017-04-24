@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import {connect} from 'react-redux'
-import LoginActions from '../../Redux/LoginRedux'
+import LoginActions from '../../Shared/Redux/LoginRedux'
 
 //Individual Screens
 import LoginScreen from './LoginScreen.js'
