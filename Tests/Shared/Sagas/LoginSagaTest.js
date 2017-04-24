@@ -1,8 +1,8 @@
 import test from 'ava'
 import { put, call } from 'redux-saga/effects'
-import { login } from '../../App/Shared/Sagas/LoginSagas'
-import LoginActions from '../../App/Shared/Redux/LoginRedux'
-import FixtureAPI from '../../App/Shared/Services/FixtureApi'
+import { login } from '../../../App/Shared/Sagas/LoginSagas'
+import LoginActions from '../../../App/Shared/Redux/LoginRedux'
+import FixtureAPI from '../../../App/Shared/Services/FixtureApi'
 
 const stepper = (fn) => (mock) => fn.next(mock).value
 
