@@ -28,7 +28,8 @@ First follow the React Native getting started guide here:
 ## Running in development (native)
 
 The default development configuration expects an API server running on
-`http://localhost:3000` you can find the example API server here: @TODO
+`http://localhost:3000` you can find the example API server here:
+<https://github.com/TalkingQuickly/location_tracker_api>
 
 1. cd to the repo
 2. Run Build for either OS
