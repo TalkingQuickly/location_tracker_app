@@ -13,7 +13,8 @@ The inital app structure was generated using [Ignite](https://github.com/infinit
 
 ## Getting ready for React
 
-@TODO links to the react install guides
+First follow the React Native getting started guide here:
+<https://facebook.github.io/react-native/docs/getting-started.html>
 
 ## Setting up for development
 
