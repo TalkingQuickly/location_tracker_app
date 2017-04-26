@@ -52,3 +52,10 @@ This can be achieved with a terminal running each of:
 
 1. `cd App/Web/public && python -m SimpleHTTPServer 8000`
 2. `gulp watch`
+
+## Functionality
+
+To see the app do anything, you'll want to simulate some GPS movement.
+You can use the simulator to simulate GPS activity in multiple countries
+and see the app update with data about the country and time spend in it.
+You can also then view exact locations visited on the map screen.
